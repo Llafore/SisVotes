@@ -31,13 +31,26 @@ public class CartorioController {
 	@PutMapping("/api/cartorios")
 	public CartorioEntity updateCartorioEntity(@RequestBody CartorioEntity newEntity) {
 		return repository.findById(newEntity.getId())
-				.map(employee -> {
-					employee.setNome(newEntity.getNome());
-					employee.setUf(newEntity.getUf());
-					return repository.save(newEntity);
+				.map(cartorio -> {
+					cartorio.setNome(newEntity.getNome());
+					cartorio.setUf(newEntity.getUf());
+					return repository.save(cartorio);
 				})
 				.orElseGet(() -> {
 					return repository.save(newEntity);
 				});
 	}
 }
+
+// GPTOLAS: 
+//@PutMapping("/api/cartorios")
+//public CartorioEntity updateCartorioEntity(@RequestBody CartorioEntity newEntity) {
+//    return Optional.ofNullable(repository.findById(newEntity.getId()))
+//            .map(cartorio -> {
+//                cartorio.setNome(newEntity.getNome());
+//                cartorio.setUf(newEntity.getUf());
+//                return repository.save(cartorio);
+//            })
+//            .orElseGet(() -> repository.save(newEntity));
+//}
+
