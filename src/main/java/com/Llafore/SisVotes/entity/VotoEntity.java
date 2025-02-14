@@ -1,13 +1,18 @@
 package com.Llafore.SisVotes.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="rank")
-public class RankEntity {
+@Table(name="votos")
+public class VotoEntity {
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@ManyToOne
+	@JoinColumn(name = "id_cartorio", nullable = false)
 	private CartorioEntity cartorio;
+	@ManyToOne
+	@JoinColumn(name = "id_colaborador", nullable = false)
 	private ColaboradorEntity colaborador;
 	private int posicao;
 	public int getId() {

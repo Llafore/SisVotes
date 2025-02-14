@@ -1,11 +1,12 @@
 package com.Llafore.SisVotes.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="cartorio")
+@Table(name="cartorios")
 public class CartorioEntity {
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String nome;
 	private String uf;
