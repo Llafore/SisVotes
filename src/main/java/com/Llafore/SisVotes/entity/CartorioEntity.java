@@ -11,7 +11,15 @@ public class CartorioEntity {
 	private String nome;
 	private String uf;
 	
+	public CartorioEntity() {
+	}
 	
+	public CartorioEntity(int id, String nome, String uf) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.uf = uf;
+	}
 	public int getId() {
 		return id;
 	}
@@ -30,6 +38,5 @@ public class CartorioEntity {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	
 	
 }
